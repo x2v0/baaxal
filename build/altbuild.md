@@ -116,8 +116,7 @@ RPM-пакетов).
 ## 7. **Документация и ресурсы**
 - Официальная документация по AltBuild доступна 
 на сайте Альт Линукс: 
-[https://www.altlinux.org/](https://www.altlinux.o
-rg/).
+[https://www.altlinux.org](https://www.altlinux.org/)
 - Примеры использования AltBuild можно найти в 
 репозиториях Альт Линукс.
 

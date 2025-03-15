@@ -122,11 +122,9 @@ Linux на низком уровне.
 
 ## 6. **Ресурсы**
 - Официальный сайт LFS: 
-[https://www.linuxfromscratch.org/](https://www.li
-nuxfromscratch.org/)
+[https://www.linuxfromscratch.org/](https://www.linuxfromscratch.org/)
 - Руководство LFS: 
-[https://www.linuxfromscratch.org/lfs/](https://ww
-w.linuxfromscratch.org/lfs/)
+[https://www.linuxfromscratch.org/lfs/](https://www.linuxfromscratch.org/lfs/)
 - Beyond Linux From Scratch (BLFS): Расширенное 
 руководство для добавления дополнительных пакетов 
 и функциональности.
