@@ -1,5 +1,4 @@
-## [Linux From Scratch 
-PD](https://github.com/lfspd/lfspd)
+## [Linux From Scratch PD](https://github.com/lfspd/lfspd)
 
 Это набор пакетов Linux и научного программного 
 обеспечения для Docker-контейнера. 
@@ -23,7 +22,7 @@ chroot/proot-окружении или в WSL2.
 данных).
 - Набор пакетов для научных вычислений и 
 программирования. Подробнее: 
-**[packages.md](Readme/packages.md)**.
+**[packages.md](https://github.com/lfspd/lfspd/Readme/packages.md)**.
 - Последние версии всех пакетов: glibc, gcc, 
 perl, cmake, python и др.
 - Пакеты установлены в стандартные директории: 
@@ -38,8 +37,7 @@ perl, cmake, python и др.
 
 ### Документация:
 - 
-**[BuildFromScratch.md](https://github.com/lfspd/l
-fspd/Readme/BuildFromScratch.md
+**[BuildFromScratch.md](https://github.com/lfspd/lfspd/Readme/BuildFromScratch.md
 )** — как собрать дистрибутив с нуля.
 - 
 **[RunDistro.md](https://github.com/lfspd/lfspd/Readme/RunDistro.md)** — как 
