@@ -1,4 +1,3 @@
-## [Linux From Scratch PD](https://github.com/lfspd/lfspd)
 
 Это набор пакетов Linux и научного программного 
 обеспечения для Docker-контейнера. 
@@ -21,8 +20,7 @@ chroot/proot-окружении или в WSL2.
 флагами оптимизации размера, очищен от ненужных 
 данных).
 - Набор пакетов для научных вычислений и 
-программирования. Подробнее: 
-**[packages.md](https://github.com/lfspd/lfspd/Readme/packages.md)**.
+программирования.
 - Последние версии всех пакетов: glibc, gcc, 
 perl, cmake, python и др.
 - Пакеты установлены в стандартные директории: 
@@ -34,22 +32,6 @@ perl, cmake, python и др.
 ### Основан на проекте Linux From Scratch:
 Официальный сайт: 
 [https://www.linuxfromscratch.org/](https://www.linuxfromscratch.org/)
-
-### Документация:
-- 
-**[BuildFromScratch.md](https://github.com/lfspd/lfspd/Readme/BuildFromScratch.md
-)** — как собрать дистрибутив с нуля.
-- 
-**[RunDistro.md](https://github.com/lfspd/lfspd/Readme/RunDistro.md)** — как 
-запустить дистрибутив на локальной машине.
-- **[RunP8G4.md](https://github.com/lfspd/lfspd/Readme/RunP8G4.md)** — как 
-запустить генерацию событий в **Pythia8** с 
-полным моделированием в **Geant4** внутри **lfspd 
-Docker-контейнера**.
-- **[packages.md](https://github.com/lfspd/lfspd/Readme/packages.md)** — список 
-пакетов, включенных в дистрибутив, и их описание.
-- **[Readme](https://github.com/lfspd/lfspd/Readme)** — директория с подробной 
-информацией.
 
 ### Характеристики:
 - Дистрибутив содержит **более 170 пакетов**.
