@@ -76,8 +76,7 @@ x86_64) для архитектуры **ARM** или **AArch64**.
 
 ### Пример кросс-сборки для Termux:
 1. **Установка кросс-компилятора**:
-   На хост-системе установите кросс-компилятор 
-для ARM:
+   На хост-системе установите кросс-компилятор для ARM:
    ```bash
    sudo apt-get install gcc-aarch64-linux-gnu
    ```
@@ -89,8 +88,7 @@ x86_64) для архитектуры **ARM** или **AArch64**.
    ```
 
 3. **Перенос и тестирование**:
-   Перенесите собранный бинарный файл на 
-устройство с Termux и запустите его:
+   Перенесите собранный бинарный файл на устройство с Termux и запустите его:
    ```bash
    ./hello
    ```
@@ -111,11 +109,9 @@ AArch64.
 
 ## 5. **Полезные ссылки**
 - Официальный репозиторий Termux: 
-[https://github.com/termux/termux-app](https://git
-hub.com/termux/termux-app)
+[https://github.com/termux/termux-app](https://github.com/termux/termux-app)
 - Репозиторий пакетов Termux: 
-[https://github.com/termux/termux-packages](https:
-//github.com/termux/termux-packages)
+[https://github.com/termux/termux-packages](https://github.com/termux/termux-packages)
 
 ---
 

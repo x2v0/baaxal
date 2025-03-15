@@ -21,8 +21,7 @@ sudo apt-get install gcc-arm-linux-gnueabihf
 g++-arm-linux-gnueabihf
 ```
 
-### Пример установки кросс-компилятора для 
-AArch64:
+### Пример установки кросс-компилятора для AArch64:
 ```bash
 sudo apt-get install gcc-aarch64-linux-gnu 
 g++-aarch64-linux-gnu
@@ -47,8 +46,7 @@ sudo dnf install arm-linux-gnu-gcc
 arm-linux-gnu-gcc-c++
 ```
 
-### Пример установки кросс-компилятора для 
-AArch64:
+### Пример установки кросс-компилятора для AArch64:
 ```bash
 sudo dnf install aarch64-linux-gnu-gcc 
 aarch64-linux-gnu-gcc-c++
@@ -65,16 +63,14 @@ aarch64-linux-gnu-gcc-c++
 
 ## 3. **Arch Linux**
 Arch Linux и его производные (например, Manjaro) 
-предоставляют кросс-компиляторы через AUR (Arch 
-User Repository) и официальные репозитории.
+предоставляют кросс-компиляторы через AUR (Arch User Repository) и официальные репозитории.
 
 ### Пример установки кросс-компилятора для ARM:
 ```bash
 sudo pacman -S arm-linux-gnueabihf-gcc
 ```
 
-### Пример установки кросс-компилятора для 
-AArch64:
+### Пример установки кросс-компилятора для AArch64:
 ```bash
 sudo pacman -S aarch64-linux-gnu-gcc
 ```
@@ -89,16 +85,14 @@ sudo pacman -S aarch64-linux-gnu-gcc
 ---
 
 ## 4. **OpenSUSE**
-OpenSUSE предоставляет кросс-компиляторы через 
-свои репозитории.
+OpenSUSE предоставляет кросс-компиляторы через свои репозитории.
 
 ### Пример установки кросс-компилятора для ARM:
 ```bash
 sudo zypper install cross-arm-linux-gnueabi-gcc
 ```
 
-### Пример установки кросс-компилятора для 
-AArch64:
+### Пример установки кросс-компилятора для AArch64:
 ```bash
 sudo zypper install cross-aarch64-linux-gnu-gcc
 ```
@@ -121,8 +115,7 @@ Gentoo предоставляет мощные инструменты для
 emerge cross-arm-linux-gnueabihf/gcc
 ```
 
-### Пример установки кросс-компилятора для 
-AArch64:
+### Пример установки кросс-компилятора для AArch64:
 ```bash
 emerge cross-aarch64-linux-gnu/gcc
 ```
@@ -152,8 +145,7 @@ Yocto — это не дистрибутив, а система для
 - RISC-V
 
 ### Пример использования:
-Yocto использует `bitbake` для сборки пакетов и 
-создания образов для целевых архитектур.
+Yocto использует `bitbake` для сборки пакетов и создания образов для целевых архитектур.
 
 ---
 
@@ -185,8 +177,7 @@ Alpine Linux — это минималистичный дистрибутив,
 apk add gcc-arm-linux-gnueabihf
 ```
 
-### Пример установки кросс-компилятора для 
-AArch64:
+### Пример установки кросс-компилятора для AArch64:
 ```bash
 apk add gcc-aarch64-linux-gnu
 ```
@@ -200,16 +191,14 @@ apk add gcc-aarch64-linux-gnu
 
 ## 9. **CentOS/RHEL**
 CentOS и RHEL предоставляют кросс-компиляторы 
-через дополнительные репозитории (например, 
-EPEL).
+через дополнительные репозитории (например, EPEL).
 
 ### Пример установки кросс-компилятора для ARM:
 ```bash
 sudo yum install arm-linux-gnu-gcc
 ```
 
-### Пример установки кросс-компилятора для 
-AArch64:
+### Пример установки кросс-компилятора для AArch64:
 ```bash
 sudo yum install aarch64-linux-gnu-gcc
 ```
