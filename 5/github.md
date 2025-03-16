@@ -18,7 +18,7 @@
 
 ### Репозиторий: **Embedded Toolchain Example**
 - **Описание**: Пример настройки кросс-сборки для встраиваемых систем на базе ARM.
-- **Ссылка**: [https://github.com/embeddedartistry/embedded-toolchain-examp…](https://github.com/embeddedartistry/embedded-toolchain-examp…)
+- **Ссылка**: [https://github.com/embeddedartistry](https://github.com/embeddedartistry/cmake-buildsystem)
 - **Особенности**:
   - Использование `arm-none-eabi-gcc` для сборки под ARM.
   - Интеграция с CMake и Make.
