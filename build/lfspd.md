@@ -1,4 +1,4 @@
-## [https://github.com/lfspd/lfspd](https://github.com/lfspd/lfspd)
+## [lfspd](https://github.com/lfspd/lfspd)(https://github.com/lfspd/lfspd)
 Это набор пакетов Linux и научного программного 
 обеспечения для Docker-контейнера. 
 Предполагается, что сотни тысяч таких 
