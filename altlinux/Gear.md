@@ -46,5 +46,10 @@ gear-build mypackage.spec
 ```bash
 gear-create-repo /path/to/repo
 ```
+---
+Ссылки:
+- [Gear репозиторий](https://github.com/altlinux/gear/tree/master)
+
+
 
 Gear Tools активно используются в сообществе ALT Linux и доступны для установки через официальные репозитории. Если вы работаете с ALT Linux, эти инструменты могут значительно упростить вашу работу.
