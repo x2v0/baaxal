@@ -1,0 +1,7 @@
+export HTTP_PROXY=http://proxy.elvees.com:3128
+export FTP_PROXY=http://proxy.elvees.com:3128
+export https_proxy=http://proxy.elvees.com:3128
+export http_proxy=http://proxy.elvees.com:3128
+export no_proxy=localhost,127.0.0.0/8,::1,192.168.*.*/16,10.*.*.*/8,172.16.*.*/16,*.elvees.com,*.local,*.cent
+export HTTPS_PROXY=http://proxy.elvees.com:3128
+export ftp_proxy=http://proxy.elvees.com:3128
