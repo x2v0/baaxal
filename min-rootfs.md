@@ -443,4 +443,342 @@ systemctl list-unit-files  # Список сервисов
 
 ---
 
+Чтобы использовать ветку **p11** в Alt Linux для архитектуры Эльбрус (e2k), выполните следующие шаги:
+
+---
+
+### 1. **Настройка репозиториев**
+Замените репозиторий в файле `/etc/apt/sources.list` (или внутри профиля `mkimage`) на ветку `p11`:
+
+```bash
+# Для хоста (где собираете образ)
+echo "deb http://ftp.altlinux.org/pub/distributions/ALTLinux/p11 e2k main" | sudo tee /etc/apt/sources.list.d/p11-e2k.list
+
+# Для rootfs внутри mkimage-profile
+echo "deb http://ftp.altlinux.org/pub/distributions/ALTLinux/p11 e2k main" > ~/e2k-profile/rootfs/etc/apt/sources.list
+```
+
+---
+
+### 2. **Обновите списки пакетов**
+```bash
+sudo apt-get update
+```
+
+---
+
+### 3. **Проверьте доступность пакетов для p11**
+Убедитесь, что нужные пакеты (например, `base-system`, `kernel-image-e2k`) есть в ветке:
+```bash
+apt-cache policy base-system
+```
+
+---
+
+### 4. **Измените профиль mkimage**
+В файле `mkimage.conf` укажите ветку `p11` (если требуется):
+```ini
+[general]
+arch = e2k
+output = ./output
+clean = 1
+
+[rootfs]
+profile = minimal
+size = 2G  # Для p11 может потребоваться больше места
+```
+
+---
+
+### 5. **Пересоберите rootfs**
+```bash
+mkimage -c mkimage.conf -p ~/e2k-profile --mirror="http://ftp.altlinux.org/pub/distributions/ALTLinux/p11"
+```
+
+---
+
+### 6. **Проверьте версии пакетов**
+После сборки войдите в `chroot` и проверьте:
+```bash
+sudo chroot ./output/rootfs /bin/bash
+cat /etc/os-release  # Должна отображаться версия p11
+```
+
+---
+
+### 7. **Особенности ветки p11**
+- **Ядро**: Убедитесь, что `kernel-image-e2k` совместим с p11.
+- **Systemd**: Если используется, проверьте версию (`systemd --version`).
+- **Зеркала**: Если основной репозиторий медленный, используйте зеркала:
+  ```bash
+  deb http://mirror.yandex.ru/altlinux/p11 e2k main
+  ```
+
+---
+
+### 8. **Если пакеты недоступны**
+- Проверьте URL репозитория через браузер:  
+  http://ftp.altlinux.org/pub/distributions/ALTLinux/p11/e2k/
+- Убедитесь, что ветка `p11` поддерживает архитектуру e2k.
+
+---
+
+### Пример файла `sources.list` для p11
+```bash
+deb http://ftp.altlinux.org/pub/distributions/ALTLinux/p11 e2k main
+deb http://ftp.altlinux.org/pub/distributions/ALTLinux/p11 e2k contrib
+deb http://ftp.altlinux.org/pub/distributions/ALTLinux/p11 e2k non-free
+```
+
+---
+
+### Документация
+- [Официальные репозитории Alt Linux](https://mirrors.altlinux.org/)
+- [Структура веток](https://wiki.altlinux.org/Ветки)
+
+После выполнения этих шагов вы будете использовать пакеты из ветки **p11** для сборки дистрибутива под архитектуру Эльбрус.
+
+
+---
+
+
+Чтобы использовать ветку **Sisyphus** (непрерывная разработка, rolling-release) в Alt Linux для архитектуры Эльбрус (e2k), выполните следующие шаги:
+
+---
+
+### 1. **Настройка репозиториев**
+#### a. Для хоста (где собираете образ):
+```bash
+echo "deb http://ftp.altlinux.org/pub/distributions/ALTLinux/sisyphus e2k main" | sudo tee /etc/apt/sources.list.d/sisyphus-e2k.list
+sudo apt-get update
+```
+
+#### b. Для rootfs внутри профиля `mkimage`:
+```bash
+echo "deb http://ftp.altlinux.org/pub/distributions/ALTLinux/sisyphus e2k main" > ~/e2k-profile/rootfs/etc/apt/sources.list
+```
+
+---
+
+### 2. **Проверьте доступность пакетов**
+Убедитесь, что ветка `sisyphus` поддерживает архитектуру e2k:
+```bash
+# На хосте:
+apt-cache policy base-system
+
+# Если пакеты не найдены:
+curl -I http://ftp.altlinux.org/pub/distributions/ALTLinux/sisyphus/e2k/
+```
+
+---
+
+### 3. **Настройка профиля для Sisyphus**
+#### a. В файле `mkimage.conf`:
+```ini
+[general]
+arch = e2k
+output = ./output
+clean = 1
+
+[rootfs]
+profile = minimal
+size = 2G  # Sisyphus может требовать больше места
+```
+
+#### b. Обновите `packages.list` (пример):
+```bash
+base-system
+apt
+kernel-image-e2k
+systemd
+iproute2
+dhcp-client
+elilo
+```
+
+---
+
+### 4. **Соберите rootfs**
+```bash
+mkimage -c mkimage.conf -p ~/e2k-profile --mirror="http://ftp.altlinux.org/pub/distributions/ALTLinux/sisyphus"
+```
+
+---
+
+### 5. **Проверка образа**
+После сборки:
+```bash
+sudo chroot ./output/rootfs /bin/bash
+cat /etc/os-release  # Должна отображаться ветка Sisyphus
+apt-get update
+```
+
+---
+
+### 6. **Особенности Sisyphus**
+- **Rolling-release**: Пакеты обновляются непрерывно, возможна нестабильность.
+- **Зеркала**: Используйте ближайшие для ускорения загрузки:
+  ```bash
+  deb http://mirror.yandex.ru/altlinux/sisyphus e2k main
+  ```
+- **Ключи репозитория**: Если требуется, установите:
+  ```bash
+  apt-get install apt-repo-alt
+  apt-key update
+  ```
+
+---
+
+### 7. **Устранение ошибок**
+#### a. **Ошибка «Release file not found»**:
+  - Убедитесь, что ветка `sisyphus` существует для e2k.
+  - Проверьте URL: http://ftp.altlinux.org/pub/distributions/ALTLinux/sisyphus/e2k/
+
+#### b. **Нет пакетов для e2k**:
+  - Ветка Sisyphus может не поддерживать архитектуру Эльбрус.  
+    Проверьте официальную документацию: [Alt Linux Wiki](https://wiki.altlinux.org/Architecture/E2K).
+
+---
+
+### Пример файла `sources.list` для Sisyphus
+```bash
+deb http://ftp.altlinux.org/pub/distributions/ALTLinux/sisyphus e2k main
+deb http://ftp.altlinux.org/pub/distributions/ALTLinux/sisyphus e2k contrib
+deb http://ftp.altlinux.org/pub/distributions/ALTLinux/sisyphus e2k non-free
+```
+
+---
+
+### Важно!
+- **Sisyphus** — ветка для разработки, не рекомендуется для production-сред.
+- Регулярно обновляйте систему:  
+  ```bash
+  apt-get update && apt-get upgrade
+  ```
+
+---
+
+После выполнения этих шагов вы сможете использовать актуальные пакеты из ветки Sisyphus для архитектуры Эльбрус. Если поддержка e2k отсутствует, рассмотрите другие ветки (например, **p11** или **p10**).
+
+---
+
+Для кросс-компиляции дистрибутива Alt Linux под архитектуру **Эльбрус (e2k)** на системе **x86_64** потребуется эмуляция и специальные инструменты. Вот пошаговая инструкция:
+
+---
+
+### 1. **Установите зависимости**
+```bash
+sudo apt-get update
+sudo apt-get install qemu-user-static binfmt-support debootstrap crossbuild-essential-e2k
+```
+
+---
+
+### 2. **Настройте репозитории для e2k**
+Создайте файл `/etc/apt/sources.list.d/e2k.list`:
+```bash
+echo "deb [arch=e2k] http://ftp.altlinux.org/pub/distributions/ALTLinux e2k main" | sudo tee /etc/apt/sources.list.d/e2k.list
+```
+Обновите список пакетов:
+```bash
+sudo apt-get update
+```
+
+---
+
+### 3. **Создайте chroot-окружение для e2k**
+#### a. Создайте пустую директорию:
+```bash
+mkdir ~/e2k-chroot && cd ~/e2k-chroot
+```
+
+#### b. Инициализируйте базовую систему через `debootstrap` (если доступно для e2k):
+```bash
+sudo debootstrap --arch=e2k --foreign sisyphus . http://ftp.altlinux.org/pub/distributions/ALTLinux
+```
+
+#### c. Если `debootstrap` не поддерживает e2k, используйте `qemu-user-static` и `mkimage-profile`:
+```bash
+# Скопируйте QEMU для статической эмуляции e2k
+sudo cp /usr/bin/qemu-e2k-static usr/bin/
+
+# Создайте профиль mkimage для e2k (см. предыдущие инструкции)
+# Запустите mkimage с указанием архитектуры
+sudo mkimage -c mkimage.conf -p ~/e2k-profile --arch=e2k
+```
+
+---
+
+### 4. **Ручная настройка chroot**
+#### a. Войдите в chroot с эмуляцией:
+```bash
+sudo chroot ~/e2k-chroot /usr/bin/qemu-e2k-static /bin/bash
+```
+
+#### b. Установите базовые пакеты внутри chroot:
+```bash
+apt-get update
+apt-get install base-system apt kernel-image-e2k
+```
+
+---
+
+### 5. **Сборка через mkimage-profile**
+#### a. Создайте конфиг `mkimage-e2k.conf`:
+```ini
+[general]
+arch = e2k
+output = ./output
+clean = 1
+
+[rootfs]
+profile = minimal
+size = 2G
+```
+
+#### b. Запустите сборку с явным указанием архитектуры:
+```bash
+sudo mkimage -c mkimage-e2k.conf -p ~/e2k-profile --arch=e2k
+```
+
+---
+
+### 6. **Создание ISO (опционально)**
+Используйте `xorriso` или `mkisofs` с указанием загрузчика для e2k (например, `elilo`):
+```bash
+mkisofs -o alt-e2k.iso -b boot/elilo.efi -c boot/boot.cat -no-emul-boot -V "Alt e2k" ./output
+```
+
+---
+
+### 7. **Тестирование через QEMU**
+```bash
+qemu-system-e2k -m 2G -drive file=alt-e2k.iso,format=raw
+```
+
+---
+
+### Важные нюансы:
+1. **Поддержка e2k в инструментах**:
+   - Убедитесь, что `debootstrap` или `mkimage` поддерживают e2k. Если нет, используйте ручное копирование пакетов.
+2. **Репозитории**:
+   - Для кросс-компиляции могут потребоваться пакеты `crossbuild-essential-e2k`.
+3. **Эмуляция**:
+   - `qemu-user-static` позволяет запускать бинарники e2k на x86_64, но не все функции могут работать корректно.
+
+---
+
+### Если возникли ошибки:
+- **«Package not found»**: Проверьте репозитории и наличие пакетов для e2k.
+- **«Exec format error»**: Убедитесь, что `qemu-e2k-static` скопирован в `usr/bin/` внутри chroot.
+- **Проблемы с загрузчиком**: Для e2k используйте `elilo`, а не GRUB.
+
+---
+
+### Документация:
+- [Alt Linux для e2k](https://wiki.altlinux.org/Architecture/E2K)
+- [QEMU User Emulation](https://wiki.debian.org/QemuUserEmulation)
+
+Кросс-компиляция для e2k требует глубокой настройки и может быть ограничена доступностью пакетов. Если не получается, рассмотрите сборку на нативном железе Эльбрус.
+
 
